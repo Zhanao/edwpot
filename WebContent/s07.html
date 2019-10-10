@@ -10,7 +10,7 @@
 <script type="text/javascript">
     $(function() {
         $('#btnPlain').click(function() {
-            $.ajax({
+            $.ajax({       <!--chiamami la funzione ajax gli passo url in caso di successo prendi la responce e falla elaborare dalla funzione, in questo caso buttalo dentro a target plain -->
                 url : "s07.txt",
                 success : function(data) {
                     $('#targetPlain').text(data);
@@ -18,16 +18,16 @@
             })
         })
 
-        $('#btnLoad').click(function() {
-            $('#targetLoad').load('s07.txt');
+        $('#btnLoad').click(function() { <!--forma ancora più compatta-->
+            $('#targetLoad').load('s07.txt');<!--load accetta testi-->
         });
 
         $('#btnLoadSrv').click(function() {
-            $('#targetLoadSrv').load('/edwpot/s07/timerPlain');
+            $('#targetLoadSrv').load('/edwpot/s07/timerPlain'); <!--load accetta testi-->
         });
 
         $('#btnGetSrv').click(function() {
-            $.get('/edwpot/s07/timerPlain', function(data) {
+            $.get('/edwpot/s07/timerPlain', function(data) { <!--se non devo fare solo una load, questa forma mi permette di fare tutto quello che voglio-->
                 $('#targetGetSrv').val(data);
             });
         });
